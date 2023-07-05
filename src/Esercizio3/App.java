@@ -26,11 +26,12 @@ public class App {
 	public void savePs(String nameFile) {
 		StringBuilder sb = new StringBuilder();
 		for (Presenza presenza : elencoPresenze) {
-			sb.append(presenza.getNomeDipendente()).append("@").append(presenza.getGiorniPresenza()).append("#");
+			sb.append(presenza.getNomeDipendente()).append("@").append(presenza.getGiorniPresenza()).append("#")
+					.append(" ");
 		}
 
 		try {
-			FileUtils.writeStringToFile(new File(nameFile), sb.toString(), StandardCharsets.UTF_8);
+			FileUtils.writeStringToFile(new File(nameFile), sb.toString(), StandardCharsets.UTF_8, false);
 			log.info("Presenze salvate su disco");
 		} catch (IOException e) {
 			log.error("Errore durante il salvataggio delle presenze su disco");
@@ -64,11 +65,16 @@ public class App {
 	}
 
 	public static void main(String[] args) {
+		String currentDir = System.getProperty("user.dir");
+		System.out.println("Directory di lavoro corrente: " + currentDir);
+
 		App pst = new App();
 
 		pst.addpresenza("Artem", 5);
 		pst.addpresenza("Giulio", 33);
 		pst.addpresenza("Marco", 49);
+
+		pst.savePs("presenze.txt");
 
 		pst.elencoPresenze.clear();
 
