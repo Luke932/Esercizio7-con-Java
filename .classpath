@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="src/lib/logback-classic-1.4.8.jar"/>
 	<classpathentry kind="lib" path="src/lib/logback-core-1.4.8.jar"/>
 	<classpathentry kind="lib" path="src/lib/slf4j-api-2.0.7.jar"/>
+	<classpathentry kind="lib" path="src/lib/commons-io-2.13.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
